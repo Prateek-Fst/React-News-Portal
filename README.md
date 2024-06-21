@@ -20,7 +20,7 @@ A React application that fetches news articles from an API based on selected cat
    - npm or yarn
 
 2. **Installing**
- `git clone ` 
+ `git clone https://github.com/Prateek-Fst/React-News-Portal.git ` 
  `cd frontend`
  `npm install`
 
