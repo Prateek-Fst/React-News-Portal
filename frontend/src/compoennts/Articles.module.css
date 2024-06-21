@@ -1,0 +1,155 @@
+ul {
+    list-style: none;
+    display: flex;
+}
+
+ul li {
+    padding: 0.5vw;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header styles */
+
+.headers {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.headers h4 {
+    margin-right: 10px;
+}
+
+.headers select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Article styles */
+
+.articlecon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.articlelist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.article {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.article img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.article h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.article p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.article a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+.article a:hover {
+    color: #23527c;
+}
+
+.search {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+@media (min-width: 768px) {
+    .article {
+        width: 400px;
+    }
+
+    .search input[type="text"] {
+        width: 400px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .article {
+        width: 500px;
+    }
+
+    .search input[type="text"] {
+        width: 500px;
+    }
+}
+
+
+@media (min-width: 1280px) {
+    .article {
+        width: 600px;
+    }
+
+    .search input[type="text"] {
+        width: 600px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .article {
+        width: 250px;
+    }
+
+    .search input[type="text"] {
+        width: 250px;
+    }
+}
+
+
+@media (max-width: 479px) {
+    .article {
+        width: 350px;
+    }
+
+    .search input[type="text"] {
+        width: 200px;
+    }
+}
