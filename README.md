@@ -20,9 +20,9 @@ A React application that fetches news articles from an API based on selected cat
    - npm or yarn
 
 2. **Installing**
-git clone 
-cd frontend
-npm install
+ `git clone ` 
+ `cd frontend`
+ `npm install`
 
 3. **Running the App**
 
