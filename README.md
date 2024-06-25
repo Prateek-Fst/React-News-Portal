@@ -4,8 +4,6 @@ A React application that fetches news articles from an API based on selected cat
 
 #### Technologies Used
 - React
-- Redux
-- Redux Thunk
 - CSS Modules
 
 #### Features
