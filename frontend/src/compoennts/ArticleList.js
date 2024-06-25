@@ -1,28 +1,51 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchArticles, setCategory, setCurrentPage, setSearchTerm } from '../redux/actions';
+import React, { useState, useEffect } from 'react';
 import Pagination from './Pagination';
 import SearchBar from './SearchBar';
 import styles from './Articles.module.css';
 
 export default function ArticleList() {
-    const dispatch = useDispatch();
-    const { articles, totalResults, category, searchTerm, currentPage, loading, error } = useSelector(state => state.articles);
+    const [articles, setArticles] = useState([]);
+    const [totalResults, setTotalResults] = useState(0);
+    const [category, setCategory] = useState("Business");
+    const [searchTerm, setSearchTerm] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        dispatch(fetchArticles(category, searchTerm, currentPage));
-    }, [category, searchTerm, currentPage, dispatch]);
+        const fetchArticles = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                const response = await fetch(`https://newsapi.org/v2/top-headlines?language=en&category=${category}&q=${searchTerm}&page=${currentPage}&pageSize=5&apiKey=06a09666e4fd49a488dd66c4805ea2c7`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch articles');
+                }
+                const data = await response.json();
+                setArticles(data.articles || []);
+                setTotalResults(data.totalResults || 0);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchArticles();
+    }, [category, searchTerm, currentPage]);
 
     const handleChange = (e) => {
-        dispatch(setCategory(e.target.value));
+        setCategory(e.target.value);
+        setCurrentPage(1);
     };
 
     const handleSearch = (keyword) => {
-        dispatch(setSearchTerm(keyword));
+        setSearchTerm(keyword);
+        setCurrentPage(1);
     };
 
     const paginate = (pageNumber) => {
-        dispatch(setCurrentPage(pageNumber));
+        setCurrentPage(pageNumber);
     };
 
     return (
